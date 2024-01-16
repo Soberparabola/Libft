@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jordgarc <jordgarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 19:19:20 by jordgarc          #+#    #+#             */
-/*   Updated: 2024/01/16 18:13:08 by jordgarc         ###   ########.fr       */
+/*   Created: 2024/01/16 18:28:54 by jordgarc          #+#    #+#             */
+/*   Updated: 2024/01/16 18:29:03 by jordgarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(int c)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')
-		|| (c >= '0' && c <= '9'))
-		return (1);
-	return (0);
+	unsigned int	i;
+	unsigned int	count;
+
+	count = 0;
+	while (src[count] != '\0')
+		++count;
+	i = 0;
+	while (src[i] != '\0' && i < (size - 1))
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (i);
 }
