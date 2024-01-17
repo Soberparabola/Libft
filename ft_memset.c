@@ -6,9 +6,11 @@
 /*   By: jordgarc <jordgarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 18:03:47 by jordgarc          #+#    #+#             */
-/*   Updated: 2024/01/16 18:04:11 by jordgarc         ###   ########.fr       */
+/*   Updated: 2024/01/17 18:32:32 by jordgarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stddef.h>
 
 void	*ft_memset(void *b, int c, size_t len)
 {
@@ -17,7 +19,7 @@ void	*ft_memset(void *b, int c, size_t len)
 	i = 0;
 	while (i < len)
 	{
-		((unsigned char *)b)[i] = c;
+		((unsigned char *)b)[i] = (unsigned char) c;
 		i++;
 	}
 	return (b);

@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jordgarc <jordgarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 18:15:05 by jordgarc          #+#    #+#             */
-/*   Updated: 2024/01/17 18:41:25 by jordgarc         ###   ########.fr       */
+/*   Created: 2024/01/17 18:16:25 by jordgarc          #+#    #+#             */
+/*   Updated: 2024/01/17 18:23:48 by jordgarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+char	*ft_strchr(const char *s, int c)
 {
-	size_t	i;
-
-	if (!dst && !src)
-		return (0);
-	i = 0;
-	while (i < n)
+	while (*s)
 	{
-		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
-		i++;
+		if (*s == c)
+			return ((char *)s);
+		s++;
 	}
-	return (dst);
+	if (*s == c)
+		return ((char *)s);
+	else
+		return (0);
 }

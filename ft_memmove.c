@@ -6,9 +6,11 @@
 /*   By: jordgarc <jordgarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 18:17:50 by jordgarc          #+#    #+#             */
-/*   Updated: 2024/01/16 18:18:49 by jordgarc         ###   ########.fr       */
+/*   Updated: 2024/01/17 18:42:37 by jordgarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stddef.h>
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
