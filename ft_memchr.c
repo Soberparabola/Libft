@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jordgarc <jordgarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 18:24:52 by jordgarc          #+#    #+#             */
-/*   Updated: 2024/01/18 18:16:08 by jordgarc         ###   ########.fr       */
+/*   Created: 2024/01/18 18:56:34 by jordgarc          #+#    #+#             */
+/*   Updated: 2024/01/18 19:07:06 by jordgarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static unsigned int	ft_strlen(const char *str)
+#include <stddef.h>
+
+void	*ft_memchr(const void *arr, int c, size_t n)
 {
-	unsigned int	len;
+	unsigned char	*str;
+	unsigned char	ch;
+	size_t			i;
 
-	len = 0;
-	while (str[len] != '\0')
+	i = 0;
+	str = (unsigned char *)arr;
+	ch = (unsigned char)c;
+	while (i < n)
 	{
-		len++;
+		if (str[i] == ch)
+			return (str + i);
+		i++;
 	}
-	return (len);
-}
-
-char	*ft_strrchr(const char *s, int c)
-{
-	int	i;
-
-	i = ft_strlen(s);
-	while (i >= 0)
-	{
-		if (s[i] == c)
-			return ((char *)&s[i]);
-		i--;
-	}
-	return (0);
+	return (NULL);
 }

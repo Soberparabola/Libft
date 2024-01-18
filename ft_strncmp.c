@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jordgarc <jordgarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 18:24:52 by jordgarc          #+#    #+#             */
-/*   Updated: 2024/01/18 18:16:08 by jordgarc         ###   ########.fr       */
+/*   Created: 2024/01/18 18:37:57 by jordgarc          #+#    #+#             */
+/*   Updated: 2024/01/18 18:47:25 by jordgarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static unsigned int	ft_strlen(const char *str)
+#include <stddef.h>
+
+int	ft_strncmp(const char *s1, const charr *s2, size_t n)
 {
-	unsigned int	len;
+	size_t	i;
 
-	len = 0;
-	while (str[len] != '\0')
+	i = 0;
+	while (s1[i] != '\0' && s2[i] != '\0' && i < n)
 	{
-		len++;
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
 	}
-	return (len);
-}
-
-char	*ft_strrchr(const char *s, int c)
-{
-	int	i;
-
-	i = ft_strlen(s);
-	while (i >= 0)
-	{
-		if (s[i] == c)
-			return ((char *)&s[i]);
-		i--;
-	}
+	if (i != n)
+		return (s1[i] - s2[i]);
 	return (0);
 }

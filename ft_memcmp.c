@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jordgarc <jordgarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 18:24:52 by jordgarc          #+#    #+#             */
-/*   Updated: 2024/01/18 18:16:08 by jordgarc         ###   ########.fr       */
+/*   Created: 2024/01/18 19:07:58 by jordgarc          #+#    #+#             */
+/*   Updated: 2024/01/18 19:14:42 by jordgarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static unsigned int	ft_strlen(const char *str)
+#include <stddef.h>
+
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	unsigned int	len;
+	const unsigned char	*ss1;
+	const unsigned char	*ss2;
+	size_t				i;
 
-	len = 0;
-	while (str[len] != '\0')
+	i = 0;
+	ss1 = (const unsigned char *)s1;
+	ss2 = (const unsigned char *)s2;
+	while (i < n)
 	{
-		len++;
-	}
-	return (len);
-}
-
-char	*ft_strrchr(const char *s, int c)
-{
-	int	i;
-
-	i = ft_strlen(s);
-	while (i >= 0)
-	{
-		if (s[i] == c)
-			return ((char *)&s[i]);
-		i--;
+		if (ss1[i] != ss2[i])
+			return (ss1[i] - ss2[i]);
+		i++;
 	}
 	return (0);
 }
