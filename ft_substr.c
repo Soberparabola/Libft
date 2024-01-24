@@ -6,7 +6,7 @@
 /*   By: jordgarc <jordgarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 18:49:11 by jordgarc          #+#    #+#             */
-/*   Updated: 2024/01/22 19:37:56 by jordgarc         ###   ########.fr       */
+/*   Updated: 2024/01/24 18:14:02 by jordgarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	char	*ret;
 
 	if (!s)
-		return (0);
+		return (NULL);
 	if (ft_strlen(s) < start)
 		len = 0;
 	if (ft_strlen(s + start) < len)
