@@ -6,40 +6,11 @@
 /*   By: jordgarc <jordgarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 18:49:11 by jordgarc          #+#    #+#             */
-/*   Updated: 2024/01/24 18:14:02 by jordgarc         ###   ########.fr       */
+/*   Updated: 2024/01/26 18:55:13 by jordgarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdlib.h>
-
-static int	ft_strlen(char *str)
-{
-	int	a;
-
-	a = 0;
-	while (str[a] != '\0')
-		a++;
-	return (a);
-}
-
-static unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
-{
-	unsigned int	i;
-	unsigned int	count;
-
-	count = 0;
-	while (src[count] != '\0')
-		++count;
-	i = 0;
-	while (src[i] != '\0' && i < (size - 1))
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (i);
-}
+#include "libft.h"
 
 char	*ft_substr(const char *s, unsigned int start, size_t len)
 {

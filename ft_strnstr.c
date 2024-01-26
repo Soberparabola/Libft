@@ -6,23 +6,11 @@
 /*   By: jordgarc <jordgarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 19:22:33 by jordgarc          #+#    #+#             */
-/*   Updated: 2024/01/18 19:42:54 by jordgarc         ###   ########.fr       */
+/*   Updated: 2024/01/26 18:59:00 by jordgarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-static int	ft_strlen(char *str)
-{
-	int	a;
-
-	a = 0;
-	while (str[a] != '\0')
-	{
-		a++;
-	}
-	return (a);
-}
+#include "libft.h"
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {

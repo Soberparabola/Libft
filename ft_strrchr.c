@@ -6,32 +6,24 @@
 /*   By: jordgarc <jordgarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 18:24:52 by jordgarc          #+#    #+#             */
-/*   Updated: 2024/01/18 18:16:08 by jordgarc         ###   ########.fr       */
+/*   Updated: 2024/01/26 19:52:15 by jordgarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static unsigned int	ft_strlen(const char *str)
+#include "libft.h"
+
+char	*ft_strrchr(const char *str, int c)
 {
-	unsigned int	len;
+	char	*last_occurrence;
 
-	len = 0;
-	while (str[len] != '\0')
+	last_occurrence = NULL;
+	while (*str)
 	{
-		len++;
+		if (*str == (char)c)
+			last_occurrence = (char *)str;
+		str++;
 	}
-	return (len);
-}
-
-char	*ft_strrchr(const char *s, int c)
-{
-	int	i;
-
-	i = ft_strlen(s);
-	while (i >= 0)
-	{
-		if (s[i] == c)
-			return ((char *)&s[i]);
-		i--;
-	}
-	return (0);
+	if (*str == (char)c)
+		return ((char *)str);
+	return (last_occurrence);
 }

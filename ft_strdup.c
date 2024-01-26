@@ -6,24 +6,11 @@
 /*   By: jordgarc <jordgarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 18:22:22 by jordgarc          #+#    #+#             */
-/*   Updated: 2024/01/22 18:40:15 by jordgarc         ###   ########.fr       */
+/*   Updated: 2024/01/26 18:56:14 by jordgarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stddef.h>
-
-static int	ft_strlen(char *str)
-{
-	int	a;
-
-	a = 0;
-	while (str[a] != '\0')
-	{
-		a++;
-	}
-	return (a);
-}
+#include "libft.h"
 
 char	*ft_strdup(const char *s1)
 {
