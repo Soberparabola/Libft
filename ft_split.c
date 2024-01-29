@@ -6,80 +6,95 @@
 /*   By: jordgarc <jordgarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 18:14:41 by jordgarc          #+#    #+#             */
-/*   Updated: 2024/01/24 18:38:08 by jordgarc         ###   ########.fr       */
+/*   Updated: 2024/01/29 17:49:31 by jordgarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stddef.h>
-#include <stdlib.h>
 
-static size_t	ft_numstring(const char *s, char c)
+static void	ft_initiate_vars(size_t *i, int *j, int *subs_ind)
 {
-	size_t	count;
-	size_t	flag;
+	*i = 0;
+	*j = 0;
+	*subs_ind = -1;
+}
+
+int	ft_wcount(const char *s, char c)
+{
+	int	count;
+	int	ind;
 
 	count = 0;
-	flag = 0;
-	if (!s)
-		return (0);
-	while (*s != '\0')
+	ind = 0;
+	while (s[ind] != '\0')
 	{
-		if (*s == c)
-			flag = 0;
-		else if (flag == 0)
-		{
-			flag = 1;
+		while (s[ind] == c && s[ind] != '\0')
+			ind++;
+		if (s[ind] != c && s[ind] != '\0')
 			count++;
-		}
-		s++;
+		while (s[ind] != c && s[ind] != '\0')
+			ind++;
 	}
 	return (count);
 }
 
-static size_t	ft_numchar(const char *s, char c)
+static char	*ft_crstr(const char *s, int start, int end)
 {
-	size_t	count;
+	int		i;
+	char	*str;
 
-	count = 0;
-	while (s[count] != c && s[count] != '\0')
-		count++;
-	return (count);
+	i = 0;
+	str = (char *) malloc((end - start + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
+	while (start < end)
+	{
+		str[i] = s[start];
+		i++;
+		start++;
+	}
+	str[i] = '\0';
+	return (str);
 }
 
-static char	**ft_free_matrix(const char **matrix, size_t len_matrix)
+static void	*ft_free(char **strs_ar, int count)
 {
-	while (len_matrix--)
-		free((void *)matrix[len_matrix]);
-	free(matrix);
+	int	i;
+
+	i = 0;
+	while (i < count)
+	{
+		free(strs_ar[i]);
+		i++;
+	}
+	free(strs_ar);
 	return (NULL);
 }
 
 char	**ft_split(const char *s, char c)
 {
-	char	**matrix;
-	size_t	len;
+	int		j;
+	int		subs_ind;
+	char	**strs_ar;
 	size_t	i;
-	size_t	sl;
 
-	i = 0;
-	sl = 0;
-	len = ft_numstring(s, c);
-	matrix = (char **)malloc(sizeof(char *) * (len + 1));
-	if (!matrix)
+	ft_initiate_vars(&i, &j, &subs_ind);
+	strs_ar = (char **) ft_calloc((ft_wcount(s, c) + 1), sizeof(char *));
+	if (!strs_ar)
 		return (NULL);
-	while (i < len)
+	while (i <= ft_strlen(s))
 	{
-		while (*s == c)
-			s++;
-		sl = ft_numchar((const char *)s, c);
-		matrix[i] = (char *)malloc(sizeof(char) * sl + 1);
-		if (!matrix[i])
-			return (ft_free_matrix((const char **)matrix, len));
-		ft_strlcpy(matrix[i], s, sl + 1);
-		s = (ft_strchr(s, (int)c));
+		if (s[i] != c && subs_ind < 0)
+			subs_ind = i;
+		else if ((s[i] == c || i == ft_strlen(s)) && subs_ind >= 0)
+		{
+			strs_ar[j] = ft_crstr(s, subs_ind, i);
+			if (!(strs_ar[j]))
+				return (ft_free(strs_ar, j));
+			subs_ind = -1;
+			j++;
+		}
 		i++;
 	}
-	matrix[i] = 0;
-	return (matrix);
+	return (strs_ar);
 }
