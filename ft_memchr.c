@@ -6,11 +6,11 @@
 /*   By: jordgarc <jordgarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 18:56:34 by jordgarc          #+#    #+#             */
-/*   Updated: 2024/01/18 19:07:06 by jordgarc         ###   ########.fr       */
+/*   Updated: 2024/01/30 19:26:04 by jordgarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 void	*ft_memchr(const void *arr, int c, size_t n)
 {

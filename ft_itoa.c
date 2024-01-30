@@ -6,11 +6,10 @@
 /*   By: jordgarc <jordgarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 18:39:45 by jordgarc          #+#    #+#             */
-/*   Updated: 2024/01/24 18:47:19 by jordgarc         ###   ########.fr       */
+/*   Updated: 2024/01/30 20:04:02 by jordgarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 static int	ft_numlen(int n, int base)
